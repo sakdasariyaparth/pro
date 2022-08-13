@@ -31,13 +31,17 @@
             background-color: green;
             color: white;
         }
-        .per{
-            color: green;
-            float: right;
+        #per{
+            margin-left: 10px;
             margin-top: 20px;
-            margin-right: 100px;
         }
-        #search{
+        #serach{
+            margin-top: 20px;
+            font-size: 20px;
+            border: 1px solid green;
+            border-radius: 20px;
+        }
+       /* #search{
             font-size: large;
             margin-top: 20px;
             margin-left: 500px;
@@ -81,7 +85,7 @@
                 margin: 15px;
                 padding: 20px;
             }
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -96,14 +100,39 @@
     </div>
     <div class="container">
         <div class="row">
-            <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" placeholder="  Search Enroll Number.." name="search" id="serach">
+                    <button type="submit" name="b1">SEARCH</button>
+                </div>
+                    <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a>
+            </div>
         </div>
     </div>
-    <div id="search">
-        <form>
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+    <table border="1" align="center">
+	<h2 align="center">ORDER</h2>
+        <tr>
+            <th>ID</th>
+            <th>CUSTOMER NAME</th>
+        </tr>
+	 <?php
+            $qry="select * from idcard_gettbl";
+            $link=mysqli_connect("localhost","root","","parth_db");
+            $result=mysqli_query($link,$qry);
+
+            if(mysqli_affected_rows($link)>0)
+            {
+                while($row=mysqli_fetch_assoc($result))
+                {
+        ?>          
+            <tr>
+                <td><?php echo $row["s_name"] ?></td>
+                <td><?php echo $row["s_enumber"] ?></td>
+            </tr>
+        <?php
+                }
+            }
+        ?>
+    </table>
 </body>
 </html>
