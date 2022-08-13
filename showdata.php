@@ -37,6 +37,51 @@
             margin-top: 20px;
             margin-right: 100px;
         }
+        #search{
+            font-size: large;
+            margin-top: 20px;
+            margin-left: 500px;
+        }
+        @media screen and (min-width: 245px){
+            #search{
+                float: none;
+                display: block;
+                text-align: center;
+                width: 100%;
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+        @media screen and (max-width: 522px){
+            #search{
+                float: none;
+                display: block;
+                text-align: center;
+                width: 100%;
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+        @media screen and (min-width: 245px){
+            .fa fa-search{
+                float: none;
+                display: block;
+                text-align: center;
+                width: 100%;
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+        @media screen and (max-width: 522px){
+            .fa fa-search{
+                float: none;
+                display: block;
+                text-align: center;
+                width: 100%;
+                margin: 15px;
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -53,6 +98,12 @@
         <div class="row">
             <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
         </div>
+    </div>
+    <div id="search">
+        <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
     </div>
 </body>
 </html>
