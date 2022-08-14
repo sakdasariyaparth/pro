@@ -101,38 +101,40 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <div class="form-group">
-                    <input type="text" placeholder="  Search Enroll Number.." name="search" id="serach">
-                    <button type="submit" name="b1">SEARCH</button>
-                </div>
+                <form method="POST">
+                    <div class="form-group">
+                        <input type="text" placeholder="  Search Enroll Number.." name="search" id="serach">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-outline-success" name="b1">SEARCH</button>
+                    </div>
+                </form>
                     <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a>
             </div>
         </div>
-    </div>
-    <table border="1" align="center">
-	<h2 align="center">ORDER</h2>
-        <tr>
-            <th>ID</th>
-            <th>CUSTOMER NAME</th>
-        </tr>
-	 <?php
-            $qry="select * from idcard_gettbl";
-            $link=mysqli_connect("localhost","root","","parth_db");
-            $result=mysqli_query($link,$qry);
+    </div><br>
+    <div class="container">
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <?php
+        $qry="select * from idcard_gettbl";
+        $link=mysqli_connect("localhost","root","","parth_db");
+        $result=mysqli_query($link,$qry);
 
-            if(mysqli_affected_rows($link)>0)
+        if(mysqli_affected_rows($link)>0)
+        {
+            while($row=mysqli_fetch_assoc($result))
             {
-                while($row=mysqli_fetch_assoc($result))
-                {
-        ?>          
-            <tr>
-                <td><?php echo $row["s_name"] ?></td>
-                <td><?php echo $row["s_enumber"] ?></td>
-            </tr>
-        <?php
+    ?> 
+       <?php
                 }
             }
-        ?>
-    </table>
+        ?>    
+        </table> 
+    </div>
 </body>
 </html>

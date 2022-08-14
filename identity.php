@@ -88,7 +88,7 @@
         <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
         <div class="row">
         </div>
-    <form method="post" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -217,10 +217,10 @@
             
                 <img src='photo/</*?php echo $row["photo"] ?>' width='100px'>
             
-        </*?php
+        </*f?php
                 }
             }
-        ?*/>
+        ?>
 
 
 
