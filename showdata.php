@@ -86,6 +86,9 @@
                 padding: 20px;
             }
         }*/
+        .table{
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -114,27 +117,83 @@
     <div class="container">
     <table class="table table-hover">
     <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+      <tr align="center">
+        <th>Enroll Number.</th>
+        <th>Name</th>
+        <th>Course Name</th>
+        <th>First Year</th>
+        <th>Total Sem</th>
+        <th>Date Of Birth</th>
+        <th>Phone Number</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Photo</th>
+        <th>Any Changes</th>
       </tr>
     </thead>
     <?php
-        $qry="select * from idcard_gettbl";
-        $link=mysqli_connect("localhost","root","","parth_db");
-        $result=mysqli_query($link,$qry);
-
-        if(mysqli_affected_rows($link)>0)
+    if(isset($_REQUEST["b1"]))
         {
-            while($row=mysqli_fetch_assoc($result))
+            $enumber=$_REQUEST['search'];
+            $qry="select * from idcard_gettbl where s_enumber='$enumber'";
+            $link=mysqli_connect("localhost","root","","parth_db");
+            $result=mysqli_query($link,$qry);
+
+            if(mysqli_affected_rows($link)>0)
             {
-    ?> 
-       <?php
-                }
+                while($row=mysqli_fetch_assoc($result))
+                {
+        ?>       
+        <tbody>
+    <tr align="center">
+            <th scope="row"><?php echo $row["s_enumber"] ?></th>
+            <td><?php echo $row["s_name"] ?></td>
+            <td><?php echo $row["s_cname"] ?></td>
+            <td><?php echo $row["s_fyear"] ?></td>
+            <td><?php echo $row["s_tsem"] ?></td>
+            <td><?php echo $row["s_dob"] ?></td>
+            <td><?php echo $row["s_cnumber"] ?></td>
+            <td><?php echo $row["s_optradio"] ?></td>
+            <td><?php echo $row["s_add"] ?></td>
+            <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="45px"></td>
+            <td><a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a></td>
+    </tr>
+        </tbody>
+<?php
             }
-        ?>    
-        </table> 
+        }
+    }
+?>
+<?php
+         $qry="select * from idcard_gettbl";
+         $link=mysqli_connect("localhost","root","","parth_db");
+         $result=mysqli_query($link,$qry);
+         
+         if(mysqli_affected_rows($link)>0)
+         {
+             while($row=mysqli_fetch_assoc($result))
+             {
+         ?> 
+         <tbody>
+         <tr align="center">
+             <th scope="row"><?php echo $row["s_enumber"] ?></th>
+             <td><?php echo $row["s_name"] ?></td>
+             <td><?php echo $row["s_cname"] ?></td>
+             <td><?php echo $row["s_fyear"] ?></td>
+             <td><?php echo $row["s_tsem"] ?></td>
+             <td><?php echo $row["s_dob"] ?></td>
+             <td><?php echo $row["s_cnumber"] ?></td>
+             <td><?php echo $row["s_optradio"] ?></td>
+             <td><?php echo $row["s_add"] ?></td>
+             <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="45px"></td>
+             <td><a href="#"><input type="submit" value="REQUEST CHANGES." id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a></td>
+         </tr>
+         </tbody>
+         <?php
+                 }
+            }
+         ?>       
+        </table>
     </div>
 </body>
 </html>
