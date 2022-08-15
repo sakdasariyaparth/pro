@@ -54,3 +54,34 @@ if(isset($_REQUEST["b1"]))
             <tr>
                 <td><h4 align='center'><?php echo $row["s_add"] ?></h4></td>
             </tr> -->
+
+
+
+
+            $qry="select * from idcard_gettbl";
+$link=mysqli_connect("localhost","root","","parth_db");
+$result=mysqli_query($link,$qry);
+
+if(mysqli_affected_rows($link)>0)
+{
+    while($row=mysqli_fetch_assoc($result))
+    {
+?> 
+<tbody>
+<tr>
+    <th scope="row"><?php echo $row["s_enumber"] ?></th>
+    <td><?php echo $row["s_name"] ?></td>
+    <td><?php echo $row["s_cname"] ?></td>
+    <td><?php echo $row["s_fyear"] ?></td>
+    <td><?php echo $row["s_tsem"] ?></td>
+    <td><?php echo $row["s_dob"] ?></td>
+    <td><?php echo $row["s_cnumber"] ?></td>
+    <td><?php echo $row["s_optradio"] ?></td>
+    <td><?php echo $row["s_add"] ?></td>
+    <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="45px"></td>
+</tr>
+</tbody>
+<?php
+        }
+    }
+?>   

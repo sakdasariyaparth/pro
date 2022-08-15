@@ -59,11 +59,15 @@
         .form-control {
             font-size: 2rem;
         }
+        #per2{
+            font-size: 20px;
+            text-decoration: none;
+        }
         .per{
             color: green;
             float: right;
             margin-top: 20px;
-            margin-right: 100px;
+            margin-right: 40px;
         }
     </style>
 </head>
@@ -83,10 +87,17 @@
                 </header>
             </div>
         </div>
-        </div>
+        <br>
         <div class="row">
-        <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
-        <div class="row">
+            <div class="col-sm-4">
+                <a href="showdata.php" id="per2">&nbsp;&nbsp;&nbsp;You have alredy Fill This form ?</a>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4">
+                <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
+            </div>
         </div>
     <form method="POST" enctype="multipart/form-data">
         <div class="container">
