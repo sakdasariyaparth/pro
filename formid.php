@@ -38,7 +38,7 @@
             font-size: 1.5rem;
         }
         #next{
-            font-size: 12px;
+            font-size: 11px;
             text-decoration: none;
         }
     </style>
@@ -70,8 +70,8 @@
                             <input type="text" name="lname" id="lname" class="form-control"required placeholder="Last Name">
                         </div>
                         <div class="col-12">
-                            <label>E-mail</label>
-                            <input type="email" name="mail" id="mail" class="form-control"required placeholder="E-mail">
+                            <label>Username</label>
+                            <input type="text" name="mail" id="mail" class="form-control"required placeholder="Username" maxlength="15" title="Create Username Only 15 Character">
                         </div>
                         <div class="col-12">
                             <label>Password</label>

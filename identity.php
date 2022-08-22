@@ -9,7 +9,7 @@
         }
         else
         {
-            header("location:formid.php");
+            header("location:formid2.php");
         }
 ?>
 <!DOCTYPE html>
@@ -27,6 +27,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!--NEW START UP--> 
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
     <!--JAVA SCRIPT ID COMPLSERY && PHP NAME COMPLSERY-->
     <style>
         #hed{
@@ -54,20 +75,25 @@
             color: white;
         }
         label{
-            font-size: 15px;
+            font-size: 13px;
         }
         .form-control {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         #per2{
-            font-size: 20px;
+            font-size: 12px;
             text-decoration: none;
         }
         .per{
-            color: green;
             float: right;
             margin-top: 20px;
             margin-right: 40px;
+        }
+        .text{
+            font-size: 18px;
+        }
+        a{
+            text-decoration: none;
         }
     </style>
 </head>
@@ -83,35 +109,41 @@
         <div class="row">
             <div class="col-sm-12">
                 <header id="hed2">
-                    GET YOUR IDENTITY CARD.
+                    FILL YOUR IDENTITY CARD.
                 </header>
             </div>
         </div>
+    </div>
         <br>
+        <div class="container">
+        <div class="d-flex align-items-center">
+        <a href="showdata.php"><input type="button" value="You have alredy Fill This form ?" class="btn btn-link px-4 me-2 btn-lg"></a>
+        <a href="logout2.php"><button type="button" class="btn btn-success me-3 btn-lg">
+          LOG OUT
+        </button></a>
+        </div>
+        </div>
+    <!--<div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
+                FIRST LOG OUT BUTTON IN USER
+                <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-success btn-lg per"></a>
                 <a href="showdata.php" id="per2">&nbsp;&nbsp;&nbsp;You have alredy Fill This form ?</a>
             </div>
-            <div class="col-sm-4">
-
-            </div>
-            <div class="col-sm-4">
-                <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>
-            </div>
         </div>
+    </div>-->
+    <br>
     <form method="POST" enctype="multipart/form-data">
         <div class="container">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <br><br>
                     <label>Your Name :- </label>
                     <input type="text" name="name" class="form-control" id="name"><p id="n1"></p>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <br><br>
                     <label>Enroll Number :- </label>
                     <input type="text" name="enumber" class="form-control" id="number">
                 </div>
@@ -184,10 +216,28 @@
                 </div>    
             </div>
         </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>1.&nbsp;</strong>The Form Will Be Considered Valid Only If All The Details Are Filled.</p>
+        </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>2.&nbsp;</strong></p>
+        </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>3.&nbsp;</strong></p>
+        </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>4.&nbsp;</strong></p>
+        </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>5.&nbsp;</strong></p>
+        </div>
+        <div class="alert alert-success">
+            <p class="text"><strong>6.&nbsp;</strong></p>
+        </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <a href=""><input type="submit" name="b1" value="GET YOUR IDENTITY CARD"  class="btn btn-block" id="btn"></a>
+                    <input type="submit" name="b1" value="SUBMIT"  class="btn btn-block btn-lg" id="btn">
                 </div>
             </div>
         </div>
@@ -209,6 +259,16 @@
             move_uploaded_file($_FILES["f1"]['tmp_name'],"photo/$f1");
             $qry="insert into idcard_gettbl(s_name,s_enumber,s_cname,s_fyear,s_tsem,s_dob,s_cnumber,s_optradio,s_add,s_f1)values('$name','$enumber','$cname',$fyear,$tsem,'$dob',$cnumber,'$optradio','$add','$f1')";
             $link=mysqli_connect("localhost","root","","parth_db");
+            $name=mysqli_real_escape_string($link,$name);
+            $enumber=mysqli_real_escape_string($link,$enumber);
+            $cname=mysqli_real_escape_string($link,$cname);
+            $fyear=mysqli_real_escape_string($link,$fyear);
+            $tsem=mysqli_real_escape_string($link,$tsem);
+            $dob=mysqli_real_escape_string($link,$dob);
+            $cnumber=mysqli_real_escape_string($link,$cnumber);
+            $optradio=mysqli_real_escape_string($link,$optradio);
+            $add=mysqli_real_escape_string($link,$add);
+            $f1=mysqli_real_escape_string($link,$f1);
             mysqli_query($link,$qry);
         }
     ?>

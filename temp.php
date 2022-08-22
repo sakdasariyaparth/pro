@@ -26,7 +26,9 @@ if(isset($_REQUEST["b1"]))
         }
         ?>
 
-
+<div class="input-group">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary">search</button>
 
 
 
@@ -54,10 +56,6 @@ if(isset($_REQUEST["b1"]))
             <tr>
                 <td><h4 align='center'><?php echo $row["s_add"] ?></h4></td>
             </tr> -->
-
-
-
-
             $qry="select * from idcard_gettbl";
 $link=mysqli_connect("localhost","root","","parth_db");
 $result=mysqli_query($link,$qry);

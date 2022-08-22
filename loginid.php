@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LOG IN </title>
+	<title>LOG IN</title>
 	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</svg>
     <style>
     	body{
     		font-family: monospace;
@@ -33,6 +34,7 @@
     		--bs-btn-line-height: 15.5px;
     		--bs-btn-border-width: 5px;
     		--bs-btn-font-size: 1.4rem;
+			background-color: green;
     	}
     	.btn-group-lg>.btn, .btn-lg {
   			--bs-btn-font-size: 1.6rem;
@@ -58,9 +60,9 @@
         			<div class="form-group">
         				<h1 id="hed2">HEY ! <br><br>WHO ARE YOU ?</h1><br>
         				<div class="d-grid gap-2 col-6 mx-auto">
-							  <a href="formid.php" class="btn btn-primary">STUDENT</a>
+							  <a href="formid2.php" class="btn btn-success">STUDENT</a>
 							  <br>
-							  <a href="admin.php" class="btn btn-primary">ADMIN</a>
+							  <a href="admin.php" class="btn btn-success">ADMIN</a>
 						</div>
         			</div>
         		</div>

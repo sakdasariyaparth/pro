@@ -32,7 +32,7 @@
             font-size: 1.5rem;
         }
         #next{
-            font-size: 12px;
+            font-size: 11px;
             text-decoration: none;
         }
     </style>
@@ -54,21 +54,21 @@
                     <form action="" method="POST" class="row g-3"> 
                         <h2>LOG IN</h2>
                         <div class="col-12">
-                            <label>E-mail</label>
-                            <input type="email" name="mail2" id="mail2" class="form-control" placeholder="E-mail">
+                            <label>Username</label>
+                            <input type="text" name="mail2" id="mail2" class="form-control" placeholder="Username" maxlength="15">
                         </div>
                         <div class="col-12">
                             <label>Password</label>
-                            <input type="password" name="pass2" id="pass2" class="form-control" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                            <input type="password" name="pass2" id="pass2" class="form-control" placeholder="Password">
                             <?php 
                             if(isset($_REQUEST["b1"]))
                             {
                                 $aduser=$_REQUEST['mail2'];
                                 $adpass=$_REQUEST['pass2'];
                                 $qry="select * from sign_up2 where stu_id='$aduser' and stu_pass='$adpass'";
-                                $link=mysqli_connect("localhost","root","","parth_db");
-                                $result=mysqli_query($link,$qry);
+                                include 'conn.php';
+                                /*$link=mysqli_connect("localhost","root","","parth_db");
+                                $result=mysqli_query($link,$qry);*/
                                 if(mysqli_affected_rows($link)>0)
                                 {
                                     while($row=mysqli_fetch_assoc($result))

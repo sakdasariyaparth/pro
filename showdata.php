@@ -1,3 +1,17 @@
+<?php
+    ob_start();
+    session_start();
+    ob_end_clean();
+                                        
+        if(isset($_SESSION["is_login"]) && $_SESSION['is_login']=="yes")
+        {
+
+        }
+        else
+        {
+            header("location:formid2.php");
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +31,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!--NEW START UP--> 
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
     <!--JAVA SCRIPT ID COMPLSERY && PHP NAME COMPLSERY-->
     <style>
         #hed{
@@ -27,19 +62,21 @@
             color: white;
             margin-top: 25px;
         }
-        #btn{
-            background-color: green;
-            color: white;
-        }
         #per{
             margin-left: 10px;
             margin-top: 20px;
         }
         #serach{
-            margin-top: 20px;
+            margin-top: 14px;
             font-size: 20px;
             border: 1px solid green;
-            border-radius: 20px;
+            border-radius: 7px;
+        }
+        .per{
+            color: green;
+            float: right;
+            margin-top: 20px;
+            margin-right: 40px;
         }
        /* #search{
             font-size: large;
@@ -86,8 +123,15 @@
                 padding: 20px;
             }
         }*/
+         .input-group{
+            margin-top: 20px; 
+        }
         .table{
             font-size: 14px;
+        }
+        .form-control
+        {
+            font-size: 12px;
         }
     </style>
 </head>
@@ -101,20 +145,29 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <form method="POST">
                     <div class="form-group">
-                        <input type="text" placeholder="  Search Enroll Number.." name="search" id="serach">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="submit" class="btn btn-outline-success" name="b1">SEARCH</button>
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded" placeholder="Search Enroll No." aria-label="Search" aria-describedby="search-addon" name="search" />
+                        <input type="submit" name="b1" class="btn btn-outline-success btn-lg" value="Search">&nbsp;&nbsp;
+                        <a href="logout2.php"><button type="button" class="btn btn-success me-3 btn-lg">
+                        LOG OUT
+                        </button></a>
+                    </div>      
+                        <!--<a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg per"></a>-->
                     </div>
                 </form>
-                    <a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a>
             </div>
         </div>
     </div><br>
     <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                
     <table class="table table-hover">
     <thead>
       <tr align="center">
@@ -128,9 +181,9 @@
         <th>Gender</th>
         <th>Address</th>
         <th>Photo</th>
-        <th>Any Changes</th>
       </tr>
     </thead>
+    <tbody>
     <?php
     if(isset($_REQUEST["b1"]))
         {
@@ -144,9 +197,9 @@
                 while($row=mysqli_fetch_assoc($result))
                 {
         ?>       
-        <tbody>
+        
     <tr align="center">
-            <th scope="row"><?php echo $row["s_enumber"] ?></th>
+            <th scope="row"><a href='change.php?ennumber=<?php echo $row["s_enumber"] ?>'><?php echo $row["s_enumber"] ?></a></th>
             <td><?php echo $row["s_name"] ?></td>
             <td><?php echo $row["s_cname"] ?></td>
             <td><?php echo $row["s_fyear"] ?></td>
@@ -155,14 +208,14 @@
             <td><?php echo $row["s_cnumber"] ?></td>
             <td><?php echo $row["s_optradio"] ?></td>
             <td><?php echo $row["s_add"] ?></td>
-            <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="45px"></td>
-            <td><a href="logout2.php"><input type="submit" value="LOG OUT" id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a></td>
+            <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="50px"></td>
     </tr>
-        </tbody>
+        
 <?php
             }
         }
     }
+    else{    
 ?>
 <?php
          $qry="select * from idcard_gettbl";
@@ -174,9 +227,9 @@
              while($row=mysqli_fetch_assoc($result))
              {
          ?> 
-         <tbody>
+         
          <tr align="center">
-             <th scope="row"><?php echo $row["s_enumber"] ?></th>
+             <th scope="row"><a href='change.php?ennumber=<?php echo $row["s_enumber"] ?>'><?php echo $row["s_enumber"] ?></a></th>
              <td><?php echo $row["s_name"] ?></td>
              <td><?php echo $row["s_cname"] ?></td>
              <td><?php echo $row["s_fyear"] ?></td>
@@ -186,14 +239,22 @@
              <td><?php echo $row["s_optradio"] ?></td>
              <td><?php echo $row["s_add"] ?></td>
              <td><img src=<?php echo "photo/" . $row["s_f1"] ?> width="45px"></td>
-             <td><a href="#"><input type="submit" value="REQUEST CHANGES." id="b2" name="b2" class="btn btn-outline-success btn-lg " id="per"></a></td>
-         </tr>
-         </tbody>
+         </tr> 
          <?php
-                 }
+                }
             }
-         ?>       
+        }
+       ?>
+         </tbody>       
         </table>
+        </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+                <a href="identity.php"><button class="btn btn-success me-md-2 btn-lg" type="button">FILL THE FORM ?</button></a>
+        </div>
     </div>
 </body>
 </html>
