@@ -26,6 +26,7 @@
         }
         .btn{
             background-color: green;
+            font-size: 10px;
         }
      </style>
 </head>
