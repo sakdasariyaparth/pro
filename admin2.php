@@ -105,7 +105,7 @@
             font-size: 12px;
         }
     </style>
-    <script>
+<!--<script>
         $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
@@ -114,7 +114,7 @@
             });
         });
     });
-</script>
+</script>-->
 </head>
 <body>
     <div class="container">
@@ -148,7 +148,6 @@
     <div class="container">
         <div class="row">
             <div class="table-responsive">
-                
     <table class="table table-hover">
     <thead>
       <tr align="center">

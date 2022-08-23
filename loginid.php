@@ -7,9 +7,6 @@
 	<?php include 'link.php'; ?>
 </svg>
     <style>
-    	body{
-    		font-family: monospace;
-    	}
 	   	#hed{
 	        align-items: center;
 	        text-align: center;
@@ -17,7 +14,6 @@
 	        background-color: green;
 	        color: white;
 	        margin-top: 25px;
-	        font-family: monospace;
         }
     	#hed2{
     		text-align: center;
