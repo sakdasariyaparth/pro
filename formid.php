@@ -1,3 +1,35 @@
+<?php
+                              if(isset($_REQUEST["b1"]))
+                                {
+                                    $name=$_REQUEST['name'];
+                                    $lname=$_REQUEST['lname'];
+                                    $qry="insert into sign_up(stu_name,stu_name2)values('$name','$lname')";
+                                    $link=mysqli_connect("localhost","root","","parth_db");
+                                    mysqli_query($link,$qry);
+                                    ob_start();
+                                    session_start();
+                                    ob_end_clean();
+                                    $_SESSION['uname']=$name;
+                                    $_SESSION['is_login']="yes";
+                                    header("location:identity.php");
+                                }
+                    ?>
+                    <?php 
+                                if(isset($_REQUEST["b1"]))
+                                {
+                                    $mail=$_REQUEST['mail'];
+                                    $pass=$_REQUEST['pass'];    
+                                    $qry="insert into sign_up2(stu_id,stu_pass)values('$mail','$pass')";
+                                    $link=mysqli_connect("localhost","root","","parth_db");
+                                    mysqli_query($link,$qry);
+                                    ob_start();
+                                    session_start();
+                                    ob_end_clean();
+                                    $_SESSION['uname']=$mail;
+                                    $_SESSION['is_login']="yes";
+                                    header("location:identity.php");
+                                }
+                    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,29 +104,9 @@
                             title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                         </div>
                         <div class="col-12">
-                            <a href="identity.php"><input type="submit" value="SIGN UP" id="b1" name="b1" class="btn btn-success mt-2"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="SIGN UP" id="b1" name="b1" class="btn btn-success mt-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="formid2.php" id="next">You Have Alredy Sign Up?</a> 
                         </div>
-                    <?php
-                              if(isset($_REQUEST["b1"]))
-                                {
-                                    $name=$_REQUEST['name'];
-                                    $lname=$_REQUEST['lname'];
-                                    $qry="insert into sign_up(stu_name,stu_name2)values('$name','$lname')";
-                                    $link=mysqli_connect("localhost","root","","parth_db");
-                                    mysqli_query($link,$qry);
-                                }
-                    ?>
-                    <?php 
-                                if(isset($_REQUEST["b1"]))
-                                {
-                                    $mail=$_REQUEST['mail'];
-                                    $pass=$_REQUEST['pass'];    
-                                    $qry="insert into sign_up2(stu_id,stu_pass)values('$mail','$pass')";
-                                    $link=mysqli_connect("localhost","root","","parth_db");
-                                    mysqli_query($link,$qry);
-                                }
-                    ?>
                     </form>
                 </div>
             </div>
