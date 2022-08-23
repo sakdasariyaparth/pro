@@ -2,20 +2,29 @@
     <head>
 <script>
     function loadDoc() {
+        var n1=document.getElementById('n1').value;
+    var n2=document.getElementById('n2').value;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         document.getElementById("M1").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "sum.php?b1=11&b2=22", true);
+  xhttp.open("GET", "sum.php?b1="+n1+"&b2="+n2+"", true);
   xhttp.send();
 }
 </script>
     </head>
     <body>
+            <label>
+                Enter Number 1:- 
+            </label>
+            <input type="text" id="n1"><br>
+            <label>
+                Enter Number 2:- 
+            </label>
+            <input type="text" id="n2">
             <div id="M1">
-                
             </div>
             <input type="button" onclick="loadDoc()" value="click me">
     </body>
