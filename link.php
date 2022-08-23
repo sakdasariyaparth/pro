@@ -17,6 +17,7 @@
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
     <!-- MDB -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
@@ -28,3 +29,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
     ></script>
     <!--JAVA SCRIPT ID COMPLSERY && PHP NAME COMPLSERY-->
+    <style>
+        body{
+            font-family: "Trirong", serif;
+        }   
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
