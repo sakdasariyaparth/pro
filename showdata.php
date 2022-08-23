@@ -19,39 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GET DATA</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <!--NEW START UP--> 
-    <!-- Font Awesome -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
-    ></script>
+    <?php include 'link.php'; ?>
     <!--JAVA SCRIPT ID COMPLSERY && PHP NAME COMPLSERY-->
     <style>
         #hed{
@@ -77,6 +45,9 @@
             float: right;
             margin-top: 20px;
             margin-right: 40px;
+        }
+        #btn3{
+            margin-bottom: 30px;
         }
        /* #search{
             font-size: large;
@@ -134,6 +105,16 @@
             font-size: 12px;
         }
     </style>
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 </head>
 <body>
     <div class="container">
@@ -164,6 +145,7 @@
             </div>
         </div>
     </div><br>
+    <input id="myInput" type="text" placeholder="Search..">
     <div class="container">
         <div class="row">
             <div class="table-responsive">
@@ -183,7 +165,7 @@
         <th>Photo</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
     <?php
     if(isset($_REQUEST["b1"]))
         {
@@ -253,7 +235,7 @@
     <br><br>
     <div class="container">
         <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-                <a href="identity.php"><button class="btn btn-success me-md-2 btn-lg" type="button">FILL THE FORM ?</button></a>
+                <a href="identity.php"><button class="btn btn-success me-md-2 btn-lg" type="button" id="btn3">FILL THE FORM ?</button></a>
         </div>
     </div>
 </body>
