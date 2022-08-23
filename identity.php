@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <input type="submit" name="b1" value="SUBMIT"  class="btn btn-block btn-lg" id="btn">
+                    <input type="submit" name="b1" value="SUBMIT"  class="btn btn-block btn-lg btn-" id="btn">
                 </div>
             </div>
         </div>

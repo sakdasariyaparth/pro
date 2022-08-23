@@ -85,7 +85,7 @@
                                 }
                             else
                             {
-                                echo "wrong username or password";
+                                echo "<font color='red'>wrong username or password</font>";
                             }
                         }
                         ?>
